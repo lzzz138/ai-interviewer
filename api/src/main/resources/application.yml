@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: ai-interviewer
+  profiles:
+    active: dev # dev-开发环境，prod-生产环境，test-测试环境 根据后缀区分不同环境配置文件
+
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-swallow-size: -1 # 上传文件大小无限制
+
+#日志级别
+logging:
+  level:
+    root: info
