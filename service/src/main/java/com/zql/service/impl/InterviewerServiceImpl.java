@@ -7,9 +7,11 @@ import com.zql.pojo.Interviewer;
 import com.zql.service.InterviewerService;
 import jakarta.annotation.Resource;
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
+@Service
 public class InterviewerServiceImpl implements InterviewerService {
 
     @Resource
