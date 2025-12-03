@@ -1,5 +1,6 @@
 package com.zql.bo;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,11 +27,13 @@ public class InterviewerBo {
     /**
      * 数字人面试官的名称
      */
+    @NotBlank(message = "数字人面试官名称不能为空")
     private String aiName;
 
     /**
      * 数字人形象图照片
      */
+    @NotBlank(message = "数字人形象图照片不能为空")
     private String image;
 
 

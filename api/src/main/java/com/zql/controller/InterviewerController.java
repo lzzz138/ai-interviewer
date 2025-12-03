@@ -5,6 +5,7 @@ import com.zql.bo.InterviewerBo;
 import com.zql.grace.result.GraceJSONResult;
 import com.zql.service.InterviewerService;
 import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,7 @@ public class InterviewerController {
      * @return
      */
     @PostMapping("/createOrUpdate")
-    public GraceJSONResult CreateOrUpdate(@RequestBody InterviewerBo interviewerBo) {
+    public GraceJSONResult CreateOrUpdate(@Valid @RequestBody InterviewerBo interviewerBo) {
         interviewerService.CreateOrUpdate(interviewerBo);
         return GraceJSONResult.ok();
     }
