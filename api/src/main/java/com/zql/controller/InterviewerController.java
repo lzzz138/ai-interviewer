@@ -6,10 +6,7 @@ import com.zql.grace.result.GraceJSONResult;
 import com.zql.service.InterviewerService;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/interviewer")
@@ -27,4 +24,14 @@ public class InterviewerController {
         interviewerService.CreateOrUpdate(interviewerBo);
         return GraceJSONResult.ok();
     }
+
+    /**
+     * 查询所有数字人面试官
+     * @return
+     */
+    @GetMapping("/list")
+    public GraceJSONResult queryAll() {
+        return GraceJSONResult.ok(interviewerService.queryAll());
+    }
+
 }

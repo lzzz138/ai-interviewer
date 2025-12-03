@@ -1,5 +1,6 @@
 package com.zql.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mysql.cj.util.StringUtils;
 import com.zql.bo.InterviewerBo;
 import com.zql.mapper.InterviewerMapper;
@@ -10,6 +11,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class InterviewerServiceImpl implements InterviewerService {
@@ -33,4 +35,8 @@ public class InterviewerServiceImpl implements InterviewerService {
         }
     }
 
+    @Override
+    public List<Interviewer> queryAll() {
+        return interviewerMapper.selectList(new QueryWrapper<Interviewer>().orderByDesc("updated_time"));
+    }
 }
