@@ -4,6 +4,10 @@ spring:
     name: ai-interviewer
   profiles:
     active: dev # dev-开发环境，prod-生产环境，test-测试环境 根据后缀区分不同环境配置文件
+  servlet:
+    multipart:
+      max-file-size: 10MB    # 单个文件最大上传大小
+      max-request-size: 10MB  # 单次请求最大上传大小
 
 server:
   tomcat:
