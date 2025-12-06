@@ -1,2 +1,6 @@
 server:
   port: 8088
+
+zql:
+  frontend:
+    domain: http://127.0.0.1:8080
