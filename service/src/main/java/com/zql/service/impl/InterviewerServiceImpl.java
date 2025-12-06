@@ -39,4 +39,12 @@ public class InterviewerServiceImpl implements InterviewerService {
     public List<Interviewer> queryAll() {
         return interviewerMapper.selectList(new QueryWrapper<Interviewer>().orderByDesc("updated_time"));
     }
+
+    @Override
+    public void delete(String id) {
+
+        //todo  检验面试官是否关联其他的工作职位
+
+        interviewerMapper.deleteById(id);
+    }
 }

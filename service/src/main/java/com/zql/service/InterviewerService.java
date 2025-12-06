@@ -10,4 +10,6 @@ public interface InterviewerService {
     public void CreateOrUpdate(InterviewerBo interviewerBo);
 
     public List<Interviewer> queryAll();
+
+    public void delete(String id);
 }
