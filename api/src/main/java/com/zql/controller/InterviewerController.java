@@ -39,8 +39,8 @@ public class InterviewerController {
      * @return
      */
     @DeleteMapping("/delete")
-    public GraceJSONResult delete(@RequestParam String id){
-        interviewerService.delete(id);
+    public GraceJSONResult delete(@RequestParam String interviewerId){
+        interviewerService.delete(interviewerId);
         return GraceJSONResult.ok();
     }
 
