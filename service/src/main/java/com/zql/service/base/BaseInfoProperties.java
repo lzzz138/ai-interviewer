@@ -1,11 +1,10 @@
-/*
 package com.zql.service.base;
 
 import com.github.pagehelper.PageInfo;
 import com.zql.enums.JobTitle;
 import com.zql.utils.PagedGridResult;
 //import com.zql.utils.RedisOperator;
-import com.zql.utils.RedisOperator;
+//import com.zql.utils.RedisOperator;
 import jakarta.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
@@ -16,8 +15,8 @@ import java.util.List;
 
 public class BaseInfoProperties {
 
-    @Resource
-    public RedisOperator redis;
+//    @Resource
+//    public RedisOperator redis;
 
     public static final String DEFAULT_USER_FACE = "";
 
@@ -186,11 +185,10 @@ public class BaseInfoProperties {
         return gridResult;
     }
 
-    */
-/**
-     * 调用支付中心需要开通账号
-     * @return
-     *//*
+//*
+//     * 调用支付中心需要开通账号
+//     * @return
+
 
     public HttpHeaders getHeadersForWxPay() {
         HttpHeaders headers = new HttpHeaders();
@@ -216,11 +214,10 @@ public class BaseInfoProperties {
 //        return 0;
 //    }
 
-    */
-/**
-     * 获得枚举列表
-     * @return
-     *//*
+//*
+//     * 获得枚举列表
+//     * @return
+
 
     public List<String> getAllJobTitles() {
         List<String> jobTitleList = new ArrayList<>();
@@ -230,4 +227,3 @@ public class BaseInfoProperties {
         return jobTitleList;
     }
 }
-*/
