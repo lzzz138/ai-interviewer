@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class QuestionLibVo {
 
 
-    private String id;
+    private String questionLibId;
 
     private String question;
 
@@ -22,7 +22,7 @@ public class QuestionLibVo {
 
     private String interviewerId;
 
-    private String aiName;
+    private String interviewerName;
 
     private Integer isOn;
 

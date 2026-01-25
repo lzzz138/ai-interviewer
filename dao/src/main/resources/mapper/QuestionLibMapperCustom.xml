@@ -4,12 +4,12 @@
 
     <select id="queryQuestionLibList" parameterType="map" resultType="com.zql.vo.QuestionLibVo">
         SELECT
-            q.id as id,
+            q.id as questionLibId,
             q.question as question,
             q.reference_answer as referenceAnswer,
             q.ai_src as aiSrc,
             q.interviewer_id as interviewerId,
-            i.ai_name as aiName,
+            i.ai_name as interviewerName,
             q.is_on as isOn,
             q.create_time as createTime,
             q.updated_time as updatedTime
