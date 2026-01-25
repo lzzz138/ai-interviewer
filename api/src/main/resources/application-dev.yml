@@ -24,11 +24,10 @@ zql:
     domain: http://127.0.0.1:5500
 
 
-
 # 文件上传配置
 minio:
   endpoint: http://127.0.0.1:9000  #minio服务地址
-  fileHost: http://10.203.197.213:9000  #文件访问地址(内网ip地址)
+  fileHost: http://192.168.3.8:9000  #文件访问地址(内网ip地址)
   accessKey: root
   secretKey: 12345678
   bucketName: ai-interviewer

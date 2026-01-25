@@ -1,12 +1,15 @@
 package com.zql.controller;
 
 
+import com.mysql.cj.util.StringUtils;
 import com.zql.bo.InterviewerBo;
 import com.zql.bo.QuestionLibBo;
+import com.zql.enums.YesOrNo;
 import com.zql.grace.result.GraceJSONResult;
 import com.zql.pojo.QuestionLib;
 import com.zql.service.QuestionLibService;
 import com.zql.utils.PagedGridResult;
+import io.minio.messages.Grant;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +35,24 @@ public class QuestionLibController {
         PagedGridResult pagedGridResult = questionLibService.queryList(question, aiName, page, pageSize);
         return GraceJSONResult.ok(pagedGridResult);
 
+    }
+
+    @PostMapping("/show")
+    public GraceJSONResult show(@RequestParam String questionLibId){
+        if(StringUtils.isNullOrEmpty(questionLibId)){
+            return GraceJSONResult.error();
+        }
+        questionLibService.setDisplayOrShow(questionLibId, YesOrNo.YES.type);
+        return GraceJSONResult.ok();
+    }
+
+    @PostMapping("/hide")
+    public GraceJSONResult hide(@RequestParam String questionLibId){
+        if(StringUtils.isNullOrEmpty(questionLibId)){
+            return GraceJSONResult.error();
+        }
+        questionLibService.setDisplayOrShow(questionLibId, YesOrNo.NO.type);
+        return GraceJSONResult.ok();
     }
 
 }

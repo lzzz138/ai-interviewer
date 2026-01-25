@@ -60,4 +60,17 @@ public class QuestionLibServiceImpl extends BaseInfoProperties implements Questi
 
         return setterPagedGrid(list, page);
     }
+
+
+    @Override
+    public void setDisplayOrShow(String questionLibId, Integer isOn) {
+        QuestionLib questionLib = new QuestionLib();
+        questionLib.setIsOn(isOn);
+        questionLib.setId(questionLibId);
+        questionLib.setUpdatedTime(LocalDateTime.now());
+
+        questionLibMapper.updateById(questionLib);
+
+
+    }
 }
