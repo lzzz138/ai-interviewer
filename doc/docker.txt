@@ -1,0 +1,27 @@
+
+# minio配置
+docker run -p 9000:9000 -p 9001:9001 \
+ --name minio \
+ -d --restart=always \
+ -e "MINIO_ROOT_USER=root " \
+ -e "MINIO_ROOT_PASSWORD=12345678" \
+ -v D:\dockerspace\minio\wechat\data:/data \
+ minio/minio server /data --console-address ":9001" -address ":9000"
+
+# redis配置
+docker run --name redis `
+  -v D:\dockerspace\redis\conf\redis.conf:/usr/local/etc/redis/redis.conf `
+  -v D:\dockerspace\redis\/data `
+  -p 6379:6379 `
+  -d redis:7.2 `
+  redis-server /usr/local/etc/redis/redis.conf
+
+# mysql配置
+docker run --name mysql8 `
+  -v D:\dockerspace\mysql8.0\conf:/etc/mysql/conf.d `
+  -v D:\dockerspace\mysql8.0\data:/var/lib/mysql `
+  -v D:\dockerspace\mysql8.0\logs:/logs `
+  -p 3306:3306 `
+  -e MYSQL_ROOT_PASSWORD=1234 `
+  -d mysql:8.0.44 `
+  --lower-case-table-names=1 --default-time_zone='+8:00'

@@ -32,6 +32,20 @@ public class FileController {
         return GraceJSONResult.ok(imageUrl);
     }
 
+    @PostMapping("/uploadInterviewVideo")
+    public GraceJSONResult uploadInterviewVideo(@RequestParam("file") MultipartFile file) throws Exception{
+        String filename = file.getOriginalFilename();
+        if(StringUtils.isNullOrEmpty(filename)){
+            return GraceJSONResult.errorCustom(ResponseStatusEnum.FILE_UPLOAD_NULL_ERROR);
+        }
+        filename = "interviewVideo/" + dealWithoutFilename(filename);
+        String videoUrl = MinIOUtils.uploadFile(minIOConfig.getBucketName(), filename, file.getInputStream(),true);
+        return GraceJSONResult.ok(videoUrl);
+    }
+
+
+
+
     private String dealWithFilename(String filename){
         String suffixName = filename.substring(filename.lastIndexOf("."));
         String originName = filename.substring(0, filename.lastIndexOf("."));
