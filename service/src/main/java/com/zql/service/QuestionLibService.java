@@ -10,4 +10,6 @@ public interface QuestionLibService {
     public PagedGridResult queryList(String question, String aiName, Integer page, Integer pageSize);
 
     public void setDisplayOrShow(String questionLibId, Integer isOn);
+
+    public void delete(String questionLibId);
 }
