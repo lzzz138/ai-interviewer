@@ -24,4 +24,16 @@
 
     </select>
 
+
+    <select id="nameList" parameterType="map" resultType="hashmap">
+        SELECT
+            j.id as jobId,
+            j.job_name as jobName
+        FROM
+            job j
+        WHERE
+            j.`status` = 1
+
+    </select>
+
 </mapper>

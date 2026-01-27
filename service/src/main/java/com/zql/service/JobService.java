@@ -4,6 +4,9 @@ import com.zql.bo.JobBo;
 import com.zql.pojo.Job;
 import com.zql.utils.PagedGridResult;
 
+import java.util.HashMap;
+import java.util.List;
+
 public interface JobService {
 
     public void createOrUpdate(JobBo jobBo);
@@ -15,4 +18,6 @@ public interface JobService {
     public void delete(String jobId);
 
     public boolean isJObContainsInterviewer(String interviewerId);
+
+    public List<HashMap<String, String>> nameList();
 }

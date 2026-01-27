@@ -42,4 +42,9 @@ public class JobController {
         jobService.delete(jobId);
         return GraceJSONResult.ok();
     }
+
+    @GetMapping("/nameList")
+    public GraceJSONResult nameList(){
+        return GraceJSONResult.ok(jobService.nameList());
+    }
 }
