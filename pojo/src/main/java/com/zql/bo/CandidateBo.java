@@ -28,5 +28,7 @@ public class CandidateBo {
 
     private LocalDate birthday;
 
+    private String jobId;
+
 
 }
