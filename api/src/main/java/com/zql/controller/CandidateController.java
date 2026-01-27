@@ -31,4 +31,7 @@ public class CandidateController {
         return GraceJSONResult.ok(result);
     }
 
+
+
+
 }
