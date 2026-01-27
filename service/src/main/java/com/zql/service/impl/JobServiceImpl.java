@@ -47,4 +47,15 @@ public class JobServiceImpl extends BaseInfoProperties implements JobService {
         List<JobVo> list = jobMapperCustom.queryList(null);
         return setterPagedGrid(list, page);
     }
+
+    @Override
+    public Job getDetail(String jobId) {
+        Job job = jobMapper.selectById(jobId);
+        return job;
+    }
+
+    @Override
+    public void delete(String jobId) {
+        jobMapper.deleteById(jobId);
+    }
 }
