@@ -13,4 +13,6 @@ public interface JobService {
     public Job getDetail(String jobId);
 
     public void delete(String jobId);
+
+    public boolean isJObContainsInterviewer(String interviewerId);
 }

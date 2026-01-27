@@ -1,5 +1,6 @@
 package com.zql.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.github.pagehelper.PageHelper;
 import com.mysql.cj.util.StringUtils;
 import com.zql.bo.JobBo;
@@ -57,5 +58,14 @@ public class JobServiceImpl extends BaseInfoProperties implements JobService {
     @Override
     public void delete(String jobId) {
         jobMapper.deleteById(jobId);
+    }
+
+    @Override
+    public boolean isJObContainsInterviewer(String interviewerId) {
+        QueryWrapper<Job> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("interviewer_id", interviewerId);
+
+        Long num = jobMapper.selectCount(queryWrapper);
+        return num > 0 ? true : false;
     }
 }

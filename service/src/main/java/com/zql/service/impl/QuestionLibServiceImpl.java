@@ -1,11 +1,13 @@
 package com.zql.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.github.pagehelper.PageHelper;
 import com.mysql.cj.util.StringUtils;
 import com.zql.bo.QuestionLibBo;
 import com.zql.enums.YesOrNo;
 import com.zql.mapper.QuestionLibMapper;
 import com.zql.mapper.QuestionLibMapperCustom;
+import com.zql.pojo.Job;
 import com.zql.pojo.QuestionLib;
 import com.zql.service.QuestionLibService;
 import com.zql.service.base.BaseInfoProperties;
@@ -77,5 +79,14 @@ public class QuestionLibServiceImpl extends BaseInfoProperties implements Questi
     @Override
     public void delete(String questionLibId) {
         questionLibMapper.deleteById((questionLibId));
+    }
+
+    @Override
+    public boolean isQuestionContainsInterviewer(String interviewerId) {
+        QueryWrapper<QuestionLib> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("interviewer_id", interviewerId);
+
+        Long num = questionLibMapper.selectCount(queryWrapper);
+        return num > 0 ? true : false;
     }
 }
