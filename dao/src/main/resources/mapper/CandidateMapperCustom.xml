@@ -12,7 +12,7 @@
             c.email as email,
             c.birthday as birthday,
             c.job_id as jobId,
-            c.created_time as createdTime,
+            c.created_time as createTime,
             j.job_name as jobName
         FROM
             candidate c

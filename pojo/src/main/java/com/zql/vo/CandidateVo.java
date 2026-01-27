@@ -29,7 +29,7 @@ public class CandidateVo {
 
     private String jobId;
 
-    private LocalDateTime createdTime;
+    private LocalDateTime createTime;
 
     private String jobName;
 
