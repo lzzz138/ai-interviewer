@@ -4,13 +4,10 @@ package com.zql.controller;
 import com.zql.bo.CandidateBo;
 import com.zql.bo.JobBo;
 import com.zql.grace.result.GraceJSONResult;
-import com.zql.pojo.Candidate;
-import com.zql.pojo.Job;
 import com.zql.service.CandidateService;
 import com.zql.utils.PagedGridResult;
 import io.minio.messages.Grant;
 import jakarta.annotation.Resource;
-import org.springframework.boot.web.server.GracefulShutdownCallback;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -33,17 +30,5 @@ public class CandidateController {
         PagedGridResult result = candidateService.queryList(realName, mobile, page, pageSize);
         return GraceJSONResult.ok(result);
     }
-
-   @GetMapping("/detail")
-   public GraceJSONResult getDetail(String candidateId){
-       Candidate candidate = candidateService.getDetail(candidateId);
-       return GraceJSONResult.ok(candidate);
-   }
-
-   @PostMapping("/delete")
-    public GraceJSONResult delete(String candidateId){
-        candidateService.delete(candidateId);
-        return GraceJSONResult.ok();
-   }
 
 }
